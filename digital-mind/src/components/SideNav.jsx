@@ -13,21 +13,27 @@ export default function SideNav() {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const idx = SECTIONS.findIndex(s => s.id === entry.target.id)
-          if (idx !== -1) setActive(idx)
+    const handleScroll = () => {
+      const centerY = window.innerHeight / 2
+      for (let i = 0; i < SECTIONS.length; i++) {
+        const el = document.getElementById(SECTIONS[i].id)
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          if (rect.top <= centerY && rect.bottom >= centerY) {
+            setActive(i)
+            break
+          }
         }
-      })
-    }, { rootMargin: '-40% 0px -40% 0px' })
+      }
+    }
+
+    // Call once to set initial state
+    handleScroll()
     
-    SECTIONS.forEach(s => {
-      const el = document.getElementById(s.id)
-      if (el) observer.observe(el)
-    })
+    // Listen to native scroll (which Lenis triggers)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     
-    return () => observer.disconnect()
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollTo = (id) => {

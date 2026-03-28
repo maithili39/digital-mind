@@ -96,13 +96,9 @@ function MainApp() {
           <SoundToggle />
           <main>
             <HeroSection />
-            <div className="section-spacer" />
             <RawDataSection />
-            <div className="section-spacer" />
             <AttentionSection />
-            <div className="section-spacer" />
             <InsightSection />
-            <div className="section-spacer" />
             <ConclusionSection />
           </main>
         </>
