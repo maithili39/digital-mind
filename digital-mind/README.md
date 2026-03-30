@@ -1,5 +1,5 @@
 # The Anatomy of a Digital Mind
-### Frontend Odyssey — IIT Patna Hackathon Submission
+### An Interactive AI Storytelling Experience
 
 An immersive, Awwwards-quality interactive storytelling website that
 takes users on a cinematic journey through the inner workings of
@@ -25,7 +25,7 @@ background simulates the latent space before activation; cyan represents
 active signal propagation; violet represents learned representations;
 amber marks the "hot" neurons firing with highest attention.
 
-## Mandatory Requirements
+## Core Experience Breakdown
 
 | Requirement | Implementation |
 |---|---|
